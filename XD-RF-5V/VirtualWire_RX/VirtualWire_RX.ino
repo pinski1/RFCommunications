@@ -8,6 +8,8 @@ void setup()
     delay(1000);
     Serial.begin(9600);	// Debugging only
     Serial.println("setup");
+    
+    pinMode(pinLED, OUTPUT);
 
     // Initialise the IO and ISR
     vw_set_rx_pin(pinRX);
@@ -30,8 +32,7 @@ void loop()
 	
 	for (i = 0; i < buflen; i++)
 	{
-	    Serial.print(buf[i], HEX);
-	    Serial.print(' ');
+            Serial.write(buf[i]);
 	}
 	Serial.println();
         digitalWrite(pinLED, LOW);
